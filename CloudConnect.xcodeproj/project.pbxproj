@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CBC2D1A0261F42910032D782 /* CloudConnectUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CBC2D1A1261F42910032D782 /* Build configuration list for PBXAggregateTarget "CloudConnectUniversal" */;
+			buildPhases = (
+				CBC2D1A6261F42BB0032D782 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = CloudConnectUniversal;
+			productName = CloudConnectUniversal;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		C8524F9D2694937100CC5579 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8524F9B2694937100CC5579 /* Reachability.swift */; };
+		C8524F9E2694937100CC5579 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8524F9C2694937100CC5579 /* ReachabilityManager.swift */; };
+		C8524FA0269493A400CC5579 /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8524F9F269493A400CC5579 /* NetworkStatusView.swift */; };
+		CBC2D0D3261F41730032D782 /* CloudConnect.h in Headers */ = {isa = PBXBuildFile; fileRef = CBC2D0D1261F41730032D782 /* CloudConnect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBC2D179261F42400032D782 /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D15E261F42400032D782 /* MultipartFormData.swift */; };
+		CBC2D17A261F42400032D782 /* RequestForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D15F261F42400032D782 /* RequestForm.swift */; };
+		CBC2D17B261F42400032D782 /* CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D160261F42400032D782 /* CloudService.swift */; };
+		CBC2D17C261F42400032D782 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D161261F42400032D782 /* URLRequest.swift */; };
+		CBC2D17D261F42400032D782 /* URLSessionConfiguration+CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D162261F42400032D782 /* URLSessionConfiguration+CloudService.swift */; };
+		CBC2D17E261F42400032D782 /* URLRequest+CloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D163261F42400032D782 /* URLRequest+CloudService.swift */; };
+		CBC2D17F261F42400032D782 /* CloudExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D164261F42400032D782 /* CloudExtended.swift */; };
+		CBC2D180261F42400032D782 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D165261F42400032D782 /* ParameterEncoding.swift */; };
+		CBC2D181261F42400032D782 /* CSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D166261F42400032D782 /* CSError.swift */; };
+		CBC2D182261F42400032D782 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D167261F42400032D782 /* Download.swift */; };
+		CBC2D183261F42400032D782 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D168261F42400032D782 /* Encodable.swift */; };
+		CBC2D184261F42400032D782 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D169261F42400032D782 /* HTTPMethod.swift */; };
+		CBC2D185261F42400032D782 /* URLConvertible+URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D16A261F42400032D782 /* URLConvertible+URLRequestConvertible.swift */; };
+		CBC2D186261F42400032D782 /* HTTPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D16B261F42400032D782 /* HTTPProvider.swift */; };
+		CBC2D187261F42400032D782 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D16C261F42400032D782 /* HTTPHeaders.swift */; };
+		CBC2D188261F42400032D782 /* LogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D16D261F42400032D782 /* LogHelper.swift */; };
+		CBC2D189261F42400032D782 /* CloudQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D16E261F42400032D782 /* CloudQuery.swift */; };
+		CBC2D18A261F42400032D782 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D16F261F42400032D782 /* BaseOperation.swift */; };
+		CBC2D18B261F42400032D782 /* CResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D170261F42400032D782 /* CResult.swift */; };
+		CBC2D18C261F42400032D782 /* CloudConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D171261F42400032D782 /* CloudConnect.swift */; };
+		CBC2D18D261F42400032D782 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D172261F42400032D782 /* DownloadService.swift */; };
+		CBC2D18E261F42400032D782 /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D173261F42400032D782 /* HTTPStatusCode.swift */; };
+		CBC2D18F261F42400032D782 /* CSQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D174261F42400032D782 /* CSQueue.swift */; };
+		CBC2D190261F42400032D782 /* BaseDecodingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D175261F42400032D782 /* BaseDecodingModel.swift */; };
+		CBC2D191261F42400032D782 /* GenericOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D176261F42400032D782 /* GenericOperation.swift */; };
+		CBC2D192261F42400032D782 /* BaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D177261F42400032D782 /* BaseProvider.swift */; };
+		CBC2D193261F42400032D782 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2D178261F42400032D782 /* JSONParser.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C8524F9B2694937100CC5579 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		C8524F9C2694937100CC5579 /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		C8524F9F269493A400CC5579 /* NetworkStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
+		CBC2D0CE261F41730032D782 /* CloudConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CloudConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBC2D0D1261F41730032D782 /* CloudConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudConnect.h; sourceTree = "<group>"; };
+		CBC2D0D2261F41730032D782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBC2D15E261F42400032D782 /* MultipartFormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		CBC2D15F261F42400032D782 /* RequestForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestForm.swift; sourceTree = "<group>"; };
+		CBC2D160261F42400032D782 /* CloudService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudService.swift; sourceTree = "<group>"; };
+		CBC2D161261F42400032D782 /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		CBC2D162261F42400032D782 /* URLSessionConfiguration+CloudService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSessionConfiguration+CloudService.swift"; sourceTree = "<group>"; };
+		CBC2D163261F42400032D782 /* URLRequest+CloudService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+CloudService.swift"; sourceTree = "<group>"; };
+		CBC2D164261F42400032D782 /* CloudExtended.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudExtended.swift; sourceTree = "<group>"; };
+		CBC2D165261F42400032D782 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		CBC2D166261F42400032D782 /* CSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSError.swift; sourceTree = "<group>"; };
+		CBC2D167261F42400032D782 /* Download.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		CBC2D168261F42400032D782 /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		CBC2D169261F42400032D782 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CBC2D16A261F42400032D782 /* URLConvertible+URLRequestConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLConvertible+URLRequestConvertible.swift"; sourceTree = "<group>"; };
+		CBC2D16B261F42400032D782 /* HTTPProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPProvider.swift; sourceTree = "<group>"; };
+		CBC2D16C261F42400032D782 /* HTTPHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
+		CBC2D16D261F42400032D782 /* LogHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
+		CBC2D16E261F42400032D782 /* CloudQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudQuery.swift; sourceTree = "<group>"; };
+		CBC2D16F261F42400032D782 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		CBC2D170261F42400032D782 /* CResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CResult.swift; sourceTree = "<group>"; };
+		CBC2D171261F42400032D782 /* CloudConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudConnect.swift; sourceTree = "<group>"; };
+		CBC2D172261F42400032D782 /* DownloadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		CBC2D173261F42400032D782 /* HTTPStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		CBC2D174261F42400032D782 /* CSQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSQueue.swift; sourceTree = "<group>"; };
+		CBC2D175261F42400032D782 /* BaseDecodingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDecodingModel.swift; sourceTree = "<group>"; };
+		CBC2D176261F42400032D782 /* GenericOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericOperation.swift; sourceTree = "<group>"; };
+		CBC2D177261F42400032D782 /* BaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseProvider.swift; sourceTree = "<group>"; };
+		CBC2D178261F42400032D782 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBC2D0CB261F41730032D782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CBC2D0C4261F41730032D782 = {
+			isa = PBXGroup;
+			children = (
+				CBC2D0D0261F41730032D782 /* CloudConnect */,
+				CBC2D0CF261F41730032D782 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBC2D0CF261F41730032D782 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBC2D0CE261F41730032D782 /* CloudConnect.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBC2D0D0261F41730032D782 /* CloudConnect */ = {
+			isa = PBXGroup;
+			children = (
+				CBC2D15D261F42400032D782 /* Connection */,
+				CBC2D0D1261F41730032D782 /* CloudConnect.h */,
+				CBC2D0D2261F41730032D782 /* Info.plist */,
+			);
+			path = CloudConnect;
+			sourceTree = "<group>";
+		};
+		CBC2D15D261F42400032D782 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				C8524F9F269493A400CC5579 /* NetworkStatusView.swift */,
+				C8524F9B2694937100CC5579 /* Reachability.swift */,
+				C8524F9C2694937100CC5579 /* ReachabilityManager.swift */,
+				CBC2D15E261F42400032D782 /* MultipartFormData.swift */,
+				CBC2D15F261F42400032D782 /* RequestForm.swift */,
+				CBC2D160261F42400032D782 /* CloudService.swift */,
+				CBC2D161261F42400032D782 /* URLRequest.swift */,
+				CBC2D162261F42400032D782 /* URLSessionConfiguration+CloudService.swift */,
+				CBC2D163261F42400032D782 /* URLRequest+CloudService.swift */,
+				CBC2D164261F42400032D782 /* CloudExtended.swift */,
+				CBC2D165261F42400032D782 /* ParameterEncoding.swift */,
+				CBC2D166261F42400032D782 /* CSError.swift */,
+				CBC2D167261F42400032D782 /* Download.swift */,
+				CBC2D168261F42400032D782 /* Encodable.swift */,
+				CBC2D169261F42400032D782 /* HTTPMethod.swift */,
+				CBC2D16A261F42400032D782 /* URLConvertible+URLRequestConvertible.swift */,
+				CBC2D16B261F42400032D782 /* HTTPProvider.swift */,
+				CBC2D16C261F42400032D782 /* HTTPHeaders.swift */,
+				CBC2D16D261F42400032D782 /* LogHelper.swift */,
+				CBC2D16E261F42400032D782 /* CloudQuery.swift */,
+				CBC2D16F261F42400032D782 /* BaseOperation.swift */,
+				CBC2D170261F42400032D782 /* CResult.swift */,
+				CBC2D171261F42400032D782 /* CloudConnect.swift */,
+				CBC2D172261F42400032D782 /* DownloadService.swift */,
+				CBC2D173261F42400032D782 /* HTTPStatusCode.swift */,
+				CBC2D174261F42400032D782 /* CSQueue.swift */,
+				CBC2D175261F42400032D782 /* BaseDecodingModel.swift */,
+				CBC2D176261F42400032D782 /* GenericOperation.swift */,
+				CBC2D177261F42400032D782 /* BaseProvider.swift */,
+				CBC2D178261F42400032D782 /* JSONParser.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CBC2D0C9261F41730032D782 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBC2D0D3261F41730032D782 /* CloudConnect.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CBC2D0CD261F41730032D782 /* CloudConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBC2D0D6261F41730032D782 /* Build configuration list for PBXNativeTarget "CloudConnect" */;
+			buildPhases = (
+				CBC2D0C9261F41730032D782 /* Headers */,
+				CBC2D0CA261F41730032D782 /* Sources */,
+				CBC2D0CB261F41730032D782 /* Frameworks */,
+				CBC2D0CC261F41730032D782 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CloudConnect;
+			productName = CloudConnect;
+			productReference = CBC2D0CE261F41730032D782 /* CloudConnect.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBC2D0C5261F41730032D782 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					CBC2D0CD261F41730032D782 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					CBC2D1A0261F42910032D782 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = CBC2D0C8261F41730032D782 /* Build configuration list for PBXProject "CloudConnect" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBC2D0C4261F41730032D782;
+			productRefGroup = CBC2D0CF261F41730032D782 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBC2D0CD261F41730032D782 /* CloudConnect */,
+				CBC2D1A0261F42910032D782 /* CloudConnectUniversal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBC2D0CC261F41730032D782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CBC2D1A6261F42BB0032D782 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "chmod u+x \"${SRCROOT}/Scripts/Release.sh\"\n\"${SRCROOT}/Scripts//Release.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBC2D0CA261F41730032D782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBC2D186261F42400032D782 /* HTTPProvider.swift in Sources */,
+				CBC2D179261F42400032D782 /* MultipartFormData.swift in Sources */,
+				CBC2D18B261F42400032D782 /* CResult.swift in Sources */,
+				CBC2D18C261F42400032D782 /* CloudConnect.swift in Sources */,
+				CBC2D17E261F42400032D782 /* URLRequest+CloudService.swift in Sources */,
+				CBC2D180261F42400032D782 /* ParameterEncoding.swift in Sources */,
+				CBC2D185261F42400032D782 /* URLConvertible+URLRequestConvertible.swift in Sources */,
+				CBC2D17A261F42400032D782 /* RequestForm.swift in Sources */,
+				CBC2D18E261F42400032D782 /* HTTPStatusCode.swift in Sources */,
+				CBC2D18D261F42400032D782 /* DownloadService.swift in Sources */,
+				CBC2D18F261F42400032D782 /* CSQueue.swift in Sources */,
+				CBC2D193261F42400032D782 /* JSONParser.swift in Sources */,
+				CBC2D190261F42400032D782 /* BaseDecodingModel.swift in Sources */,
+				CBC2D18A261F42400032D782 /* BaseOperation.swift in Sources */,
+				C8524F9E2694937100CC5579 /* ReachabilityManager.swift in Sources */,
+				C8524F9D2694937100CC5579 /* Reachability.swift in Sources */,
+				CBC2D17B261F42400032D782 /* CloudService.swift in Sources */,
+				CBC2D189261F42400032D782 /* CloudQuery.swift in Sources */,
+				CBC2D17C261F42400032D782 /* URLRequest.swift in Sources */,
+				CBC2D17D261F42400032D782 /* URLSessionConfiguration+CloudService.swift in Sources */,
+				CBC2D192261F42400032D782 /* BaseProvider.swift in Sources */,
+				CBC2D181261F42400032D782 /* CSError.swift in Sources */,
+				CBC2D184261F42400032D782 /* HTTPMethod.swift in Sources */,
+				CBC2D17F261F42400032D782 /* CloudExtended.swift in Sources */,
+				CBC2D188261F42400032D782 /* LogHelper.swift in Sources */,
+				CBC2D187261F42400032D782 /* HTTPHeaders.swift in Sources */,
+				CBC2D182261F42400032D782 /* Download.swift in Sources */,
+				C8524FA0269493A400CC5579 /* NetworkStatusView.swift in Sources */,
+				CBC2D183261F42400032D782 /* Encodable.swift in Sources */,
+				CBC2D191261F42400032D782 /* GenericOperation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CBC2D0D4261F41730032D782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CBC2D0D5261F41730032D782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CBC2D0D7261F41730032D782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3847847G6R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CloudConnect/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanu.iOSIgnite.CloudConnect;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CBC2D0D8261F41730032D782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3847847G6R;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CloudConnect/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanu.iOSIgnite.CloudConnect;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CBC2D1A2261F42910032D782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3847847G6R;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CBC2D1A3261F42910032D782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3847847G6R;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBC2D0C8261F41730032D782 /* Build configuration list for PBXProject "CloudConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBC2D0D4261F41730032D782 /* Debug */,
+				CBC2D0D5261F41730032D782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBC2D0D6261F41730032D782 /* Build configuration list for PBXNativeTarget "CloudConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBC2D0D7261F41730032D782 /* Debug */,
+				CBC2D0D8261F41730032D782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBC2D1A1261F42910032D782 /* Build configuration list for PBXAggregateTarget "CloudConnectUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBC2D1A2261F42910032D782 /* Debug */,
+				CBC2D1A3261F42910032D782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBC2D0C5261F41730032D782 /* Project object */;
+}
