@@ -44,8 +44,8 @@
 
 import Foundation
 
-internal enum CSError {
-    enum MultipartEncodingFailureReason {
+public enum CSError {
+    public enum MultipartEncodingFailureReason {
         case outputStreamWriteFailed
         case inputStreamReadFailed
         case outputStreamCreationFailed
@@ -75,30 +75,31 @@ internal enum CSError {
 extension CSError {
     internal var readbleMessage: String {
         switch self {
-        case .json: return "We are not getting expected json response or getting null resposne from the API"
+        case .json: return "We are not getting expected json response. message::"
         case .noResponse: return "No response received from API."
         case .noError: return "No error received from api."
-        case .noInternet: return "No Internet connection. Please check your internet connect."
+        case .noInternet: return "No internet connection. Please check your internet connection."
         case .invalidURL: return "Invalid URL"
         case .invalidRequest: return "Invalid Get Request."
         case .paramIncodeFaild: return "Failed to encode post parameters."
         case .multipartEncodingFailed: return "Multipart encoding Failed."
-        case .tokenExpire: return ""
+        case .tokenExpire: return "Token has been expired."
         }
     }
+    
     internal func error(msg: String) ->NSError {
         return NSError.init(domain: "AppDomain", code: self.errorCode, userInfo:["message": self.readbleMessage + msg])
     }
-    var errorCode: Int {
+   public var errorCode: Int {
         switch self {
-        case .json: return 10001
-        case .noResponse: return 10002
-        case .noError: return 10003
-        case .noInternet: return 10004
-        case .invalidURL: return 10005
-        case .invalidRequest: return 10006
-        case .paramIncodeFaild: return 10007
-        case .multipartEncodingFailed: return 10008
+        case .json: return 100
+        case .noResponse: return 101
+        case .noError: return 102
+        case .noInternet: return 103
+        case .invalidURL: return 104
+        case .invalidRequest: return 105
+        case .paramIncodeFaild: return 106
+        case .multipartEncodingFailed: return 107
         case .tokenExpire(let errorCode): return errorCode
         }
     }

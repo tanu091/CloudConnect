@@ -69,19 +69,14 @@ public struct RW {
             return handler(nil, error)
         }
     }
-    public static func decodeData<T: Decodable>(raw data: Data, withType type: T.Type, processComplete: @escaping(_ model: T?, _ error: Error?)->Void) {
-      //  self.processDataObj(data) { (newData, error) in
-            //if let item = newData {
-                do {
-                    let model = try JSONDecoder().decode(T.self, from: data)
-                    processComplete(model,nil) }
-                catch let error {
-                    processComplete(nil,error)
-                }
-           // }else {
-              //  processComplete(nil,error)
-            //}
-       // }
+    public static func decodeData<T: Decodable>(raw data: Data, withType type: T.Type,
+                                                processComplete: @escaping(_ model: T?, _ error: Error?) ->Void) {
+        do {
+            let model = try JSONDecoder().decode(T.self, from: data)
+            processComplete(model,nil) }
+        catch let error {
+            processComplete(nil,error)
+        }
     }
     
     internal static func validJson(from data: Data, complete: @escaping(_ data: Data? , _ error: Error?) ->Void) {
@@ -128,8 +123,12 @@ public struct RW {
                     completed(.success([kResponseObj: jsonObj]))
                 }else {
                     if let errorItem = error {
-                        completed(.failure(errorItem))
-                    }else {
+                        if let str = String(data: data, encoding: .utf8) {
+                            completed(.failure(CSError.json.error(msg: str)))
+                        }else {
+                            completed(.failure(errorItem))
+                        }
+                     }else {
                         completed(.failure(CSError.json.error(msg: "")))
                     }
                 }

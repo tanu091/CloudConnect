@@ -57,6 +57,7 @@ class BaseProvider {
     internal func request(form: RequestForm, completeRequest: @escaping (_ result: CResult<[String : Any]>) -> Void)  {
         if ReachabilityManager.shared.isNetworkAvailable == false {
             completeRequest(.failure(CSError.noInternet.error(msg: "")))
+            ReachabilityManager.shared.displayInternetStatus()
             return
         }
         completeRequest(.success([kRespData : Data()]))

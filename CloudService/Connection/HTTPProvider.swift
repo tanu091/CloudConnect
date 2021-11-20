@@ -45,11 +45,14 @@
 import Foundation
 
 class HTTPProvider: BaseProvider {
-    
     override internal func request(form: RequestForm, completeRequest: @escaping (_ result: CResult<[String : Any]>) -> Void)  {
         super.request(form: form) { (result) in
-            self.dataRequest(form: form) { (result) in
-                 completeRequest(result)
+            if result.isSuccess {
+                self.dataRequest(form: form) { (result) in
+                    completeRequest(result)
+                }
+            }else {
+                completeRequest(result)
             }
         }
     }
