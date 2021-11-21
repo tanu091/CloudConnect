@@ -51,8 +51,8 @@ public enum UINavigationLabelAnimationDirection {
 
 let NavigationViewHeight: CGFloat = 54.0
 let xPosition: CGFloat = 40.0
-import UIKit
 
+import UIKit
 public struct MessageAttribute {
     var title: String
     var subTitle: String
@@ -61,13 +61,14 @@ public struct MessageAttribute {
     var subTitleFont: UIFont
     var msgTxtColor: UIColor
     var spaceLines: CGFloat
+    var cornerRadius: CGFloat
     init(title: String = "Can't connect",
          subTitle: String = "You need an internet connection to use AIO Games",
          msgBgColor: UIColor = .white,
          titleFont: UIFont = UIFont.systemFont(ofSize: 16.0),
          subTitleFont: UIFont = UIFont.systemFont(ofSize: 16.0),
          msgTxtColor: UIColor = .black,
-         spaceLines: CGFloat = 2.0) {
+         spaceLines: CGFloat = 2.0,cornerRadius: CGFloat = 4.0) {
         self.title = title
         self.subTitle = subTitle
         self.msgBgColor = msgBgColor
@@ -75,6 +76,7 @@ public struct MessageAttribute {
         self.subTitleFont = subTitleFont
         self.msgTxtColor = msgTxtColor
         self.spaceLines = spaceLines
+        self.cornerRadius = cornerRadius
     }
 }
 class NetworkStatusView: UIView {
@@ -87,7 +89,7 @@ class NetworkStatusView: UIView {
      
      override init(frame: CGRect) {
         super.init(frame: frame)
-         self.backgroundColor = NetworkStatusView.messageAttribute.msgBgColor
+        self.backgroundColor = NetworkStatusView.messageAttribute.msgBgColor
         self.clipsToBounds = true
         navigationBarLbl.textAlignment = .center
         navigationBarLbl.font =  NetworkStatusView.messageAttribute.titleFont
@@ -99,6 +101,8 @@ class NetworkStatusView: UIView {
         UIApplication.shared.keyWindow?.addSubview(self)
         isSubViewOnWindow = true
         navigationBarLbl.attributedText = self.attributedString(NetworkStatusView.messageAttribute)
+         self.layer.cornerRadius = NetworkStatusView.messageAttribute.cornerRadius
+         self.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
