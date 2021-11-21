@@ -54,14 +54,14 @@ let xPosition: CGFloat = 40.0
 
 import UIKit
 public struct MessageAttribute {
-    var title: String
-    var subTitle: String
-    var msgBgColor: UIColor
-    var titleFont: UIFont
-    var subTitleFont: UIFont
-    var msgTxtColor: UIColor
-    var spaceLines: CGFloat
-    var cornerRadius: CGFloat
+    public var title: String
+    public var subTitle: String
+    public var msgBgColor: UIColor
+    public var titleFont: UIFont
+    public var subTitleFont: UIFont
+    public var msgTxtColor: UIColor
+    public var spaceLines: CGFloat
+    public var cornerRadius: CGFloat
     init(title: String = "Can't connect",
          subTitle: String = "You need an internet connection to use AIO Games",
          msgBgColor: UIColor = .white,

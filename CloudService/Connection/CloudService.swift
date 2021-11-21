@@ -218,7 +218,11 @@ public class CloudService: NSObject {
         operation.completionBlock = {
             guard let resultItem = operation.result, let respDict = resultItem.value, let urlRes = respDict[kResponse] as? HTTPURLResponse else  {
                 self.delegate?.cloud(self, httpLog: "URL Resp:- \(String(describing: operation.result?.error))")
-                completed(.failure( CSError.noResponse.error(msg: "")))
+                if let error = operation.result?.error {
+                    completed(.failure(error))
+                }else {
+                    completed(.failure(CSError.noResponse.error(msg: "")))
+                }
                 return
             }
             var apiRespDict: [String : Any] = [:]
