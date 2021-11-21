@@ -42,8 +42,6 @@
 */
 
 
-import UIKit
-
 public enum UINavigationLabelAnimationDirection {
     /* Message navigation will be from top to bottom */
     case eTop
@@ -53,52 +51,76 @@ public enum UINavigationLabelAnimationDirection {
 
 let NavigationViewHeight: CGFloat = 54.0
 let xPosition: CGFloat = 40.0
+import UIKit
 
- class NetworkStatusView: UIView {
+public struct MessageAttribute {
+    var title: String
+    var subTitle: String
+    var msgBgColor: UIColor
+    var titleFont: UIFont
+    var subTitleFont: UIFont
+    var msgTxtColor: UIColor
+    var spaceLines: CGFloat
+    init(title: String = "Can't connect",
+         subTitle: String = "You need an internet connection to use AIO Games",
+         msgBgColor: UIColor = .white,
+         titleFont: UIFont = UIFont.systemFont(ofSize: 16.0),
+         subTitleFont: UIFont = UIFont.systemFont(ofSize: 16.0),
+         msgTxtColor: UIColor = .black,
+         spaceLines: CGFloat = 2.0) {
+        self.title = title
+        self.subTitle = subTitle
+        self.msgBgColor = msgBgColor
+        self.titleFont = titleFont
+        self.subTitleFont = subTitleFont
+        self.msgTxtColor = msgTxtColor
+        self.spaceLines = spaceLines
+    }
+}
+class NetworkStatusView: UIView {
+    static var messageAttribute: MessageAttribute = MessageAttribute()
     var lastContentOffset: CGFloat = 0
     let navigationBarLbl = UILabel()
     var defaultYPosition: CGFloat = 0
-    var title: String = ""
-    var subTitle: String = ""
     var disableViewMoving: Bool = false
     var isSubViewOnWindow: Bool = false
-    
-    override init(frame: CGRect) {
+     
+     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = ReachabilityManager.shared.msgBgColor
+         self.backgroundColor = NetworkStatusView.messageAttribute.msgBgColor
         self.clipsToBounds = true
         navigationBarLbl.textAlignment = .center
-        navigationBarLbl.font = ReachabilityManager.shared.msgFont
+        navigationBarLbl.font =  NetworkStatusView.messageAttribute.titleFont
        // navigationBarLbl.backgroundColor = .red
         navigationBarLbl.numberOfLines = 0
-        navigationBarLbl.textColor = ReachabilityManager.shared.msgTextColor
+        navigationBarLbl.textColor =  NetworkStatusView.messageAttribute.msgTxtColor
         navigationBarLbl.frame = CGRect(x: 0, y: 0  , width: frame.size.width, height: frame.size.height)
         self.addSubview(navigationBarLbl)
         UIApplication.shared.keyWindow?.addSubview(self)
         isSubViewOnWindow = true
-        navigationBarLbl.attributedText = self.attributedString(with: "No Internet", secondStr: "Please check your internet connection or try again later", spaceLines: 2)
+        navigationBarLbl.attributedText = self.attributedString(NetworkStatusView.messageAttribute)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")}
     
-    func attributedString(with firstStr: String, secondStr: String, spaceLines: CGFloat)->NSAttributedString {
-        let strig = String(format:"%@\n%@",firstStr,secondStr)
+    func attributedString(_ attri: MessageAttribute )->NSAttributedString {
+        let strig = String(format:"%@\n%@",attri.title,attri.subTitle)
         let attributedString = NSMutableAttributedString(string:strig)
         
         // *** Create instance of `NSMutableParagraphStyle`
         let paragraphStyle = NSMutableParagraphStyle()
         
         // *** set LineSpacing property in points ***
-        paragraphStyle.lineSpacing = spaceLines // Whatever line spacing you want in points
+        paragraphStyle.lineSpacing = attri.spaceLines // Whatever line spacing you want in points
         paragraphStyle.alignment = .center
         paragraphStyle.lineBreakMode = .byTruncatingTail
         // *** Apply attribute to string ***
         /* First Text font and color style */
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.init(name: "Helvetica Neue", size: 16.0)!, range:NSMakeRange(0, firstStr.count))
-        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, firstStr.count))
+        attributedString.addAttribute(NSAttributedString.Key.font, value: attri.titleFont, range:NSMakeRange(0, attri.title.count))
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attri.title.count))
         
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.init(name: "Helvetica Neue", size: 14.0)!, range: NSMakeRange(firstStr.count + 1, secondStr.count))
+        attributedString.addAttribute(NSAttributedString.Key.font, value: attri.subTitleFont, range: NSMakeRange(attri.title.count + 1, attri.subTitle.count))
         
         return attributedString
     }

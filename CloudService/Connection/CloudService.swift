@@ -235,7 +235,11 @@ public class CloudService: NSObject {
                             apiRespDict[kResponseObj] = respObj
                             completed(.success(apiRespDict))
                         }else {
-                            completed(.failure(CSError.json.error(msg: "")))
+                            if let item = result.error {
+                                completed(.failure(item))
+                            } else {
+                              completed(.failure(CSError.json.error(msg: "")))
+                            }
                         }
                     }
                 } else { /* raw data object, user can parse data at their side */

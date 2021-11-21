@@ -75,7 +75,7 @@ public enum CSError {
 extension CSError {
     internal var readbleMessage: String {
         switch self {
-        case .json: return "We are not getting expected json response. message::"
+        case .json: return "We are not getting expected json response."
         case .noResponse: return "No response received from API."
         case .noError: return "No error received from api."
         case .noInternet: return "No internet connection. Please check your internet connection."
@@ -88,7 +88,7 @@ extension CSError {
     }
     
     internal func error(msg: String) ->NSError {
-        return NSError.init(domain: "AppDomain", code: self.errorCode, userInfo:["message": self.readbleMessage + msg])
+        return NSError.init(domain: "CloudServiceDomain", code: self.errorCode, userInfo:["error": self.readbleMessage, "message": msg])
     }
    public var errorCode: Int {
         switch self {

@@ -46,22 +46,17 @@ private let ExtenalReachabilityChangedNotification = NSNotification.Name("Extena
 protocol ReachabilityProtocol: AnyObject {
     func reachability(_ manager: ReachabilityManager, didNetworkChange isReachabil: Bool)
 }
-
 public class ReachabilityManager: NSObject {
-    
+    /// shared instance
+    public static let shared = ReachabilityManager()
     var noNetworkView: NetworkStatusView?
-    /** Default messsage bg color is white */
-    public var msgBgColor: UIColor = .white
-    /** Default  message text color black */
-    public var msgTextColor: UIColor = .black
-    /** Default is system font and defaulr font size 16.0 */
-    public var msgFont: UIFont = UIFont.systemFont(ofSize: 16.0)
+    /// Set message properties
+    public var messageAttribute: MessageAttribute = MessageAttribute()
     /** No alert message navigation direction */
     public var defaultMsgPosition: UINavigationLabelAnimationDirection = .eBottom
     /** dafault is FALSE. will not display alert message */
     public var isEnableMessageView: Bool =  false
-    
-    public static let shared = ReachabilityManager()  // 2. Shared instance
+   
     weak var delegate: ReachabilityProtocol?
     
     private override init() {
@@ -129,6 +124,7 @@ public class ReachabilityManager: NSObject {
     }
     /** Display meessge message no internet */
     public func displayInternetStatus() {
+        NetworkStatusView.messageAttribute = messageAttribute
         if ReachabilityManager.shared.isEnableMessageView == false {
             return
         }
