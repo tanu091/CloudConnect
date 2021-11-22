@@ -66,7 +66,7 @@ public struct MessageAttribute {
          subTitle: String = "You need an internet connection to use AIO Games",
          msgBgColor: UIColor = .white,
          titleFont: UIFont = UIFont.systemFont(ofSize: 16.0),
-         subTitleFont: UIFont = UIFont.systemFont(ofSize: 16.0),
+         subTitleFont: UIFont = UIFont.systemFont(ofSize: 14.0),
          msgTxtColor: UIColor = .black,
          spaceLines: CGFloat = 2.0,cornerRadius: CGFloat = 4.0) {
         self.title = title

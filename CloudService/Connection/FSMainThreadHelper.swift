@@ -1,28 +1,28 @@
 
 /*
 ******************************************************************
-* COPYRIGHT (c) <<2020>> <<Harman Connected Services  >>         *
+* COPYRIGHT (c) <<2020>> <<Tanu Inc  >>         *
 *
  * All rights reserved                                           *
 *
  * This software embodies materials and concepts which are       *
 * confidential to <<Customer Name>> and is made available solely *
 * pursuant to the terms of a written license agreement with      *
-* <<Harman Product>>.                                            *
+* <<Tanu  Product>>.                                             *
 *
-* Designed and Developed by Harman International Industries, Inc.
+* Designed and Developed by Tanu Inc                             *
 .           *
 *----------------------------------------------------------------*
-* MODULE OR UNIT: HCSCloudConnect                                *
+* MODULE OR UNIT: CloudService                                   *
 *
-* PROGRAMMER :  Ashish Awasthi                                   *
+* PROGRAMMER :  Tanuja Awasthi                                   *
 * DATE       :  18/07/20                                         *
 * VERSION    :  1.0                                              *
 *
 *----------------------------------------------------------------*
 *
 * MODULE SUMMARY : This is thread checker class. Only access to  *
-   HCS Cloud connect                                             *
+       Cloud service                                             *
 *
 *
 *
