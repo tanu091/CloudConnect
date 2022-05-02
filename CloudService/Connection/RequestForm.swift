@@ -57,7 +57,7 @@ public class RequestForm {
     internal var provider: HTTPProvider = HTTPProvider()
     internal var session: URLSession!
     public init(url: String, methodType: HTTPMethod = .get,headers: HTTPHeaders, requestType: RequestType = .data) {
-        self.url = url
+        self.url = url.validateURL
         self.method = methodType
         self.headers = headers
         self.requestType = requestType
@@ -127,4 +127,11 @@ public class DownloadForm: RequestForm {
         self.subDirPath = subDirPath
         super.init(url: url, methodType: method, headers: headers, requestType: .downloadFile)
     }
+}
+
+extension String {
+    var validateURL: String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
+
 }
