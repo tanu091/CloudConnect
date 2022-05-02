@@ -8,7 +8,7 @@ s.summary = "CloudService lets a user select connect to cloud."
 s.requires_arc = true
 
 # 2
-s.version = "1.0.4"
+s.version = "1.0.5"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -35,6 +35,6 @@ s.source_files = "CloudService/**/*.{swift}"
 #s.resources = "CloudService/**/*.{png,jpeg,jpg,storyboard,xib,xcassets}"
 
 # 10
-s.swift_version = "5.4.2"
+s.swift_version = "5.5"
 
 end
