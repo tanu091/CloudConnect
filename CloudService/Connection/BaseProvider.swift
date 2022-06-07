@@ -235,7 +235,7 @@ class BaseProvider {
         guard let uploadForm = form as? UploadForm, let req = URLRequest.upload(multipartFormData: { (multipartFormData) in
             var data = Data()
             for (key,value) in uploadForm.params {
-                let item = multipartFormData.convertFormField(named: key, value: value as! String, using: boundary)
+                let item = multipartFormData.convertFormField(named: key, value: value , using: boundary)
                 data.appendString(item)
              }
             let item = multipartFormData.convertFileData(fieldName: uploadForm.dataKey, fileName: uploadForm.fileName, mimeType: uploadForm.mimeType, fileData: uploadForm.data, using: boundary)

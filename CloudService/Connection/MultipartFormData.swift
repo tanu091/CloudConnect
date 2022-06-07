@@ -569,7 +569,7 @@ open class MultipartFormData {
 }
 extension MultipartFormData {
    
-    func convertFormField(named name: String, value: String, using boundary: String) -> String {
+    func convertFormField(named name: String, value: Any, using boundary: String) -> String {
         var fieldString = "--\(boundary)\r\n"
         fieldString += "Content-Disposition: form-data; name=\"\(name)\"\r\n"
         fieldString += "\r\n"
