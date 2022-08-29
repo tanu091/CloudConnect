@@ -71,6 +71,12 @@ extension CloudServiceDataSource {
     }
 }
 
+public enum OperationPriority: Int {
+    case high
+    case medium
+    case low
+}
+
 public class CloudService: NSObject {
     /// Shared singleton instance used by all `CloudService.request` APIs. Cannot be modified.
     public static let `default` = CloudService()
@@ -84,13 +90,19 @@ public class CloudService: NSObject {
     internal let session: URLSession
     
     /// Root `DispatchQueue` for all internal callbacks and state update. **MUST** be a serial queue.
-    internal let requestQueue: OperationQueue
+    internal let highPriorityQueue: OperationQueue
+
+    /// Root `DispatchQueue` for all internal callbacks and state update. **MUST** be a serial queue.
+    internal let mediumPriorityQueue: OperationQueue
+
+    /// Root `DispatchQueue` for all internal callbacks and state update. **MUST** be a serial queue.
+    internal let lowPriorityQueue: OperationQueue
     
     /// Value determining whether this instance automatically calls `resume()` on all created `Request`s.
     public let startRequestsImmediately: Bool
     
     /// Perform maximum concurrent operation
-    public static  let maxConcurrentOperationCount: Int = 1
+    public static var maxConcurrentOperationCount: Int = 1
     
     /// delegate method to inform cloud infomation state.
     public weak var delegate: CloudServiceProtocal?
@@ -132,7 +144,17 @@ public class CloudService: NSObject {
                      "Clould service does not support background URLSessionConfigurations.")
         self.session = session
         self.startRequestsImmediately = startRequestsImmediately
-        self.requestQueue = requestQueue
+        self.highPriorityQueue = requestQueue
+
+        mediumPriorityQueue = OperationQueue()
+        mediumPriorityQueue.qualityOfService = .userInitiated
+        mediumPriorityQueue.maxConcurrentOperationCount = CloudService.maxConcurrentOperationCount
+        mediumPriorityQueue.name = "com.cloudservice.medium.queqe"
+
+        lowPriorityQueue = OperationQueue()
+        lowPriorityQueue.qualityOfService = .utility
+        lowPriorityQueue.maxConcurrentOperationCount = CloudService.maxConcurrentOperationCount
+        lowPriorityQueue.name = "com.cloudservice.low.queqe"
     }
     
     /// Creates a `Session` from a `URLSessionConfiguration`.
@@ -155,11 +177,13 @@ public class CloudService: NSObject {
         precondition(configuration.identifier == nil, "Cloud does not support background URLSessionConfigurations.")
         FSFrameworkVersion()
         let session = URLSession(configuration: configuration)
-        let requestQueue = OperationQueue()
-        requestQueue.maxConcurrentOperationCount = CloudService.maxConcurrentOperationCount
-        requestQueue.name = "com.cloudservice.mainrequest.queqe"
+
+        let highPriorityQueue = OperationQueue()
+        highPriorityQueue.qualityOfService = .userInteractive
+        highPriorityQueue.maxConcurrentOperationCount = CloudService.maxConcurrentOperationCount
+        highPriorityQueue.name = "com.cloudservice.high.queqe"
         self.init(session: session,
-                  startRequestsImmediately: startRequestsImmediately, requestQueue: requestQueue)
+                  startRequestsImmediately: startRequestsImmediately, requestQueue: highPriorityQueue)
     }
     
     deinit {
@@ -167,8 +191,8 @@ public class CloudService: NSObject {
     }
     var downloadService: DownloadService {
         guard let service = self.dService else {
-            self.dService = DownloadService(self, maxConCurrentOpsCount: 1)
-            return self.dService ?? DownloadService(self, maxConCurrentOpsCount: 1)
+            self.dService = DownloadService(self, maxConCurrentOpsCount: CloudService.maxConcurrentOperationCount)
+            return self.dService ?? DownloadService(self, maxConCurrentOpsCount: CloudService.maxConcurrentOperationCount)
         }
         return service
     }
@@ -200,7 +224,7 @@ public class CloudService: NSObject {
     ///   - id: Keep remember request id, It will required, when you want to cancel request
     
     public func request<T: Decodable>(form: RequestForm, decodeClass: T.Type, _ isRetrunURLResp: Bool = true,
-                                                completed: @escaping (_ result: CResult<[AnyHashable : Any]>) -> Void) {
+                                       priority: OperationPriority = .high, completed: @escaping (_ result: CResult<[AnyHashable : Any]>) -> Void) {
         let formItem = form
         switch formItem {
         case let formItem as DownloadForm:
@@ -213,8 +237,14 @@ public class CloudService: NSObject {
         }
         formItem.provider.delegate = self
         let operation = GenericOperation.init(id: form.id, form: formItem)
-        self.requestQueue.addOperations([operation], waitUntilFinished: false)
-     
+        switch priority {
+        case .high:
+            self.highPriorityQueue.addOperations([operation], waitUntilFinished: false)
+        case .medium:
+            self.mediumPriorityQueue.addOperations([operation], waitUntilFinished: false)
+        case .low:
+            self.lowPriorityQueue.addOperations([operation], waitUntilFinished: false)
+        }
         operation.completionBlock = {
             guard let resultItem = operation.result, let respDict = resultItem.value, let urlRes = respDict[kResponse] as? HTTPURLResponse else  {
                 self.delegate?.cloud(self, httpLog: "URL Resp:- \(String(describing: operation.result?.error))")
@@ -317,13 +347,41 @@ public class CloudService: NSObject {
     }
    // MARK: - Cancellation
     
-    public func cancelAllRequests(completed: @escaping(Bool) ->Void = {_ in }) {
-        self.requestQueue.cancelAllOperations()
+    public func cancelAllRequests(_ priority: OperationPriority = .high, completed: @escaping(Bool) ->Void = {_ in }) {
+        switch priority {
+        case .high:
+            for item in self.highPriorityQueue.operations {
+                if let operation = item as? GenericOperation {
+                    debugPrint("High Operation Id: \(operation.id)")
+                }
+                item.cancel()
+                debugPrint("High isOperation canceled: \(item.isCancelled)")
+            }
+            break
+        case .medium:
+            for item in self.mediumPriorityQueue.operations {
+                if let operation = item as? GenericOperation {
+                    debugPrint("Medium Operation Id: \(operation.id)")
+                }
+                item.cancel()
+                debugPrint("Medium isOperation canceled: \(item.isCancelled)")
+            }
+            break
+        case .low:
+            for item in self.lowPriorityQueue.operations {
+                if let operation = item as? GenericOperation {
+                    debugPrint("low Operation Id: \(operation.id)")
+                }
+                item.cancel()
+                debugPrint("low isOperation canceled: \(item.isCancelled)")
+            }
+            break
+        }
         completed(true)
     }
     
     public func cancelRequest(request id: UUID, completed:@escaping(Bool) ->Void = {_ in }) {
-        for item in self.requestQueue.operations  {
+        for item in self.highPriorityQueue.operations  {
             if let operation = item as? GenericOperation, operation.id == id {
                 operation.cancel()
                 break
