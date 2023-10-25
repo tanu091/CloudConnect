@@ -2,13 +2,13 @@ Pod::Spec.new do |s|
 
 # 1
 s.platform = :ios
-s.ios.deployment_target = '14.0'
+s.ios.deployment_target = '15.0'
 s.name = "CloudService"
 s.summary = "CloudService lets a user select connect to cloud."
 s.requires_arc = true
 
 # 2
-s.version = "1.0.8"
+s.version = "1.0.9"
 
 # 3
 s.license = { :type => "MIT", :file => "LICENSE" }
@@ -28,6 +28,8 @@ s.source = { :git => "https://github.com/tanuawas/CloudConnect.git",
 #s.dependency = "Foundation"
 
 
+
+
 # 8
 s.source_files = "CloudService/**/*.{swift}"
 
@@ -36,5 +38,11 @@ s.source_files = "CloudService/**/*.{swift}"
 
 # 10
 s.swift_version = "5.5"
+
+# compile for m1 simulator
+
+s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
+s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
 end
